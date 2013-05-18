@@ -1,0 +1,39 @@
+<div class="accordion-group">
+  <div class="accordion-heading">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#{{beer.bid}}" href="#{{beer.bid}}">
+      {{beer.beer_name}}
+    </a>
+  </div>
+  <div id="{{beer.bid}}" class="accordion-body collapse">
+    <div class="accordion-inner">
+      
+      {{! Label }}
+      {{#if beer.beer_label}}
+        <img src="/images/transparent.gif" data-original="{{beer.beer_label}}" class="img-polaroid pull-right lazy hide">
+      {{/if}}
+
+      {{! Description }}
+      {{#if beer.beer_description}}
+        <p>{{beer.beer_description}}</p>
+      {{else}}
+        <p><em>Description not available.</em></p>
+      {{/if}}
+
+      {{! Info }}
+      <dl class="dl-horizontal">
+        {{#if brewery.brewery_name}}
+          <dt>Brewery</dt>
+          <dd>{{brewery.brewery_name}}</dd>
+        {{/if}}
+        {{#if beer.beer_style}}
+          <dt>Style</dt>
+          <dd>{{beer.beer_style}}</dd>
+        {{/if}}
+        {{#if beer.beer_abv}}
+          <dt>ABV</dt>
+          <dd>{{beer.beer_abv}}</dd>
+        {{/if}}
+      </dl>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,7 @@ exports.config =
           'vendor/scripts/jquery-1.9.1.js',
           'vendor/scripts/lodash-1.2.0.js',
           'vendor/scripts/backbone-1.0.0.js'
+          'vendor/scripts/bootstrap/bootstrap-tooltip.js'
         ]
         after: [
           'test/vendor/scripts/test-helper.js'
@@ -27,7 +28,11 @@ exports.config =
         'stylesheets/app.css': /^(app|vendor)/
         'test/stylesheets/test.css': /^test/
       order:
-        after: ['vendor/styles/helpers.css']
+        before: ['vendor/styles/bootstrap/bootstrap.less']
+        after: [
+          'vendor/styles/bootstrap/responsive.less'
+          'vendor/styles/helpers.css'
+        ]
 
     templates:
       joinTo: 'javascripts/app.js'
