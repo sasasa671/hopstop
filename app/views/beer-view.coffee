@@ -12,6 +12,5 @@ module.exports = class BeerView extends View
       $(event.target).find('img.lazy').each( () ->
         imageSrc = $(this).attr("data-original")
         $(this).attr("src", imageSrc).removeAttr("data-original")
-            .removeClass('hide')
       )
     )
