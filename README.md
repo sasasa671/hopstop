@@ -13,7 +13,7 @@ Requires Brunch 1.6+.
 * Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if using Windows.
 * Build the project with `sudo brunch b` or `sudo brunch w`.
 * Open the `/usr/share/nginx/www` dir to see the result.
-* Write your code.
+* To function, requires Nginx configured to authenticate and connect to the Untappd API.
 
 Example application built with the skeleton:
 [Ost.io](https://github.com/paulmillr/ostio).
