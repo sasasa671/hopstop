@@ -6,9 +6,9 @@ exports.config =
     javascripts:
       joinTo:
         'javascripts/app.js': /^app/
-        'javascripts/vendor.js': /^vendor/
-        'test/javascripts/test.js': /^test[\\/](?!vendor)/
-        'test/javascripts/test-vendor.js': /^test[\\/](?=vendor)/
+        'javascripts/vendor.js': /^(bower_components|vendor)/
+        'test/javascripts/test.js': /^test[\\/](?!(bower_components|vendor))/
+        'test/javascripts/test-vendor.js': /^test[\\/](?=(bower_components|vendor))/
       order:
         # Files in `vendor` directories are compiled before other files
         # even if they aren't specified in order.before.
@@ -17,7 +17,6 @@ exports.config =
           'vendor/scripts/jquery-1.9.1.js',
           'vendor/scripts/lodash-1.2.0.js',
           'vendor/scripts/backbone-1.0.0.js'
-          'vendor/scripts/bootstrap/bootstrap-tooltip.js'
         ]
         after: [
           'test/vendor/scripts/test-helper.js'
@@ -25,12 +24,10 @@ exports.config =
 
     stylesheets:
       joinTo:
-        'stylesheets/app.css': /^(app|vendor)/
+        'stylesheets/app.css': /^(app|bower_components|vendor)/
         'test/stylesheets/test.css': /^test/
       order:
-        before: ['vendor/styles/bootstrap/bootstrap.less']
         after: [
-          'vendor/styles/bootstrap/responsive.less'
           'vendor/styles/helpers.css'
         ]
 

@@ -11,7 +11,7 @@ module.exports = class HeaderView extends View
     'submit form': 'submit'
 
   # Handles form submission event
-  submit: (event) ->
-    event.preventDefault()
+  submit: (evt) ->
+    evt.preventDefault()
     @publishEvent '!router:route', '/beer/' +
-        window.encodeURIComponent(event.target[0].value)
+        window.encodeURIComponent(evt.target[0].value)
