@@ -7,11 +7,12 @@ based on [Chaplin](http://chaplinjs.org) architecture.
 Requires Brunch 1.6+.
 
 ## Getting started
-* Create new project via executing `brunch new <project name>`.
-Brunch with chaplin is a default application skeleton for Brunch,
-so you don't need to specify `--skeleton` option for the command.
-* Build the project with `brunch b` or `brunch w`.
-* Open the `public/` dir to see the result.
+* Clone this repo.
+* Install brunch with `sudo npm install -g brunch`, optionally passing the `--no-bin-links` flag if using Windows.
+* Install bower with `sudo npm install -g bower`, optionally passing the `--no-bin-links` flag if using Windows.
+* Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if using Windows.
+* Build the project with `sudo brunch b` or `sudo brunch w`.
+* Open the `/usr/share/nginx/www` dir to see the result.
 * Write your code.
 
 Example application built with the skeleton:
