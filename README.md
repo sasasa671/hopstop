@@ -4,7 +4,7 @@
 Hopstop is a mobile-friendly beer search app built using the Brunch with Chaplin skeleton (boilerplate) for [Brunch](http://brunch.io)
 based on [Chaplin](http://chaplinjs.org) architecture.
 
-Requires Brunch 1.6+.
+Requires Brunch 1.7+.
 
 ## Getting started
 * Clone this repo.
