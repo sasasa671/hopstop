@@ -1,0 +1,37 @@
+<div class="panel-heading">
+  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{beer.bid}}">
+    <h4 class="panel-title">{{beer.beer_name}} <i class="icon-plus pull-right"></i></h4>
+  </a>
+</div>
+<div id="{{beer.bid}}" class="panel-collapse collapse">
+  <div class="panel-body">
+    
+    {{! Label }}
+    {{#if beer.beer_label}}
+      <img alt="" src="images/transparent.gif" data-original="{{beer.beer_label}}" class="img-thumbnail pull-right lazy">
+    {{/if}}
+
+    {{! Description }}
+    {{#if beer.beer_description}}
+      <p>{{beer.beer_description}}</p>
+    {{else}}
+      <p><em>Description not available.</em></p>
+    {{/if}}
+
+    {{! Info }}
+    <dl class="dl-horizontal">
+      {{#if brewery.brewery_name}}
+        <dt>Brewery</dt>
+        <dd>{{brewery.brewery_name}}</dd>
+      {{/if}}
+      {{#if beer.beer_style}}
+        <dt>Style</dt>
+        <dd>{{beer.beer_style}}</dd>
+      {{/if}}
+      {{#if beer.beer_abv}}
+        <dt>ABV</dt>
+        <dd>{{beer.beer_abv}}</dd>
+      {{/if}}
+    </dl>
+  </div>
+</div>

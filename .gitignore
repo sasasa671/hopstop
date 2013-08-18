@@ -36,3 +36,9 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# NPM packages folder.
+node_modules/
+
+# Bower stuff.
+bower_components/

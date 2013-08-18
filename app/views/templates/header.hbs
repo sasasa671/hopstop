@@ -1,8 +1,26 @@
-<a class="header-link" href="test/">App tests</a>
-<a class="header-link" href="http://brunch.readthedocs.org/">Docs</a>
-<a class="header-link" href="https://github.com/brunch/brunch/issues">
-  GitHub issues
-</a>
-<a class="header-link" href="https://github.com/paulmillr/ostio">
-  Ost.io example app
-</a>
+<nav class="navbar" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><i class="icon-beer"></i> Hopstop</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a>
+      <li><a href="http://www.habdas.org/about/">About</a>
+    </ul>
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" autofocus pattern="\w{2,}(?.+)$" title="Search for a beer by keywords consisting of two or more characters.">
+      </div>
+      <button type="submit" class="btn btn-default">Sip</button>
+    </form>
+  </div><!-- /.navbar-collapse -->
+</nav>
