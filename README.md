@@ -13,10 +13,18 @@ Requires Brunch 1.6+.
 * Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if using Windows.
 * Build the project with `sudo brunch b` or `sudo brunch w`.
 * Open the `/usr/share/nginx/www` dir to see the result.
-* To function, requires Nginx configured to authenticate and connect to the Untappd API.
+* To function, requires Nginx configured to authenticate and connect to the Untappd API. Use the following config with completed values for `client_id` and `client_secret` to enable reverse proxy to end-point, like:
 
-Example application built with the skeleton:
-[Ost.io](https://github.com/paulmillr/ostio).
+```
+# Reverse proxy to Untappd API
+# Variation of http://goo.gl/cAV9h
+location ^~ /api/untappd/ {
+        rewrite ^/api/untappd/(.*) /v4/$1$is_args$args&client_id=&client_secret= break;
+        proxy_pass http://api.untappd.com/;
+        proxy_cache STATIC;
+        proxy_cache_valid 200 204 302 1d;
+}
+```
 
 See [Chaplin site](http://chaplinjs.org) for docs and more info.
 
