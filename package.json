@@ -13,9 +13,6 @@
     "test": "brunch test"
   },
   "dependencies": {
-    "bower": "1.1.x",
-    "read-components": "0.5.x",
-
     "javascript-brunch": ">= 1.0 < 1.8",
     "coffee-script-brunch": ">= 1.0 < 1.8",
     "coffeelint-brunch": ">= 1.0 < 1.8",
@@ -28,5 +25,9 @@
 
     "uglify-js-brunch": ">= 1.0 < 1.8"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "brunch": "1.7.1",
+    "bower": "1.1.x",
+    "read-components": "0.5.x"
+  }
 }
