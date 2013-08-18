@@ -1,7 +1,7 @@
-# Brunch with Chaplin
-![](https://a248.e.akamai.net/camo.github.com/b7ebb8bbcec7938940cf8e9c441124c3bddafd3a/687474703a2f2f662e636c2e6c792f6974656d732f34373039326b30423141334a317a3166306b34362f6277632e706e67)
+# Hopstop
+![](https://f.cloud.github.com/assets/440298/983199/47d5cf20-0847-11e3-89bf-d36f3cd0b844.png)
 
-Brunch with Chaplin is a skeleton (boilerplate) for [Brunch](http://brunch.io)
+Hopstop is a mobile-friendly beer search app built using the Brunch with Chaplin skeleton (boilerplate) for [Brunch](http://brunch.io)
 based on [Chaplin](http://chaplinjs.org) architecture.
 
 Requires Brunch 1.6+.
@@ -28,7 +28,9 @@ except a few changes:
 * CommonJS is used instead of AMD, because it's easier to use & debug.
 
 ## Features
-* HTML5Boilerplate html & css are included.
+* Ready for Bower components.
+* Bootstrap 3 included.
+* Leverages Untappd end-points to enable beer searching.
 * CoffeeScript + Stylus + Handlebars as app languages
 (you can change this to anything you want)
 * Backbone as main MVC/MVP library, Chaplin as meta-framework.
