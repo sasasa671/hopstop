@@ -16,5 +16,4 @@ module.exports = class HeaderView extends View
     input = evt.target[0].value
     return unless input
     window.ga('send','event','form','submit', 'search', input) # track event
-    param = window.encodeURIComponent(input)
-    @publishEvent '!router:route', "/beer/#{param}?q=#{param}"
+    @publishEvent '!router:route', "/beer/#{window.encodeURIComponent(input)}"

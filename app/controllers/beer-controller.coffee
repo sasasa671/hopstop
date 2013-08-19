@@ -14,7 +14,7 @@ module.exports = class BeersController extends Controller
       success: => @view.render()
 
   search: (params) ->
-    @collection = new BeersCollection name: params.name
+    @collection = new BeersCollection name: params.name # TODO: Refactor to use params.id?
     @view = new BeersCollectionView {@collection}
     @collection.fetch
       success: => @view.render()
