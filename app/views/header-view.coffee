@@ -8,10 +8,12 @@ module.exports = class HeaderView extends View
   template: template
   events:
     # Listen for form submission event
-    'submit form': 'submit'
+    'submit form': '_doSubmit'
 
   # Handles form submission event
-  submit: (evt) ->
+  _doSubmit: (evt) ->
     evt.preventDefault()
+    input = evt.target[0].value
+    window.ga('send','event','form','submit', 'search', input) # track event
     @publishEvent '!router:route', '/beer/' +
-        window.encodeURIComponent(evt.target[0].value)
+        window.encodeURIComponent(input)

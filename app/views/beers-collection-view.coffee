@@ -6,3 +6,8 @@ module.exports = class BeersView extends CollectionView
   className: 'panel-group beers'
   id: 'accordion'
   region: 'main'
+
+  initialize: ->
+    super
+    page = this.collection.name
+    window.ga('send','pageview', "/beer/#{page}")
