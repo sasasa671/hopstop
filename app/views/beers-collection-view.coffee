@@ -9,4 +9,5 @@ module.exports = class BeersView extends CollectionView
 
   initialize: ->
     super
-    window.ga('send','pageview', "/beer/#{@collection.name}")
+    page = if @collection then "/beer/#{@collection.name}" else '/'
+    window.ga('send','pageview', page)
