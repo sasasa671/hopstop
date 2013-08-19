@@ -9,5 +9,4 @@ module.exports = class BeersView extends CollectionView
 
   initialize: ->
     super
-    page = this.collection.name
-    window.ga('send','pageview', "/beer/#{page}")
+    window.ga('send','pageview', "/beer/#{@collection.name}")
