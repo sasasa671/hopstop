@@ -8,7 +8,7 @@ module.exports = class BeersController extends Controller
   historyURL: 'beer'
 
   index: ->
-    @collection = new BeersCollection()
+    @collection = new BeersCollection
     @view = new BeersCollectionView {@collection}
     @collection.fetch
       success: => @view.render()
