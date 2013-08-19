@@ -8,8 +8,8 @@ Requires Brunch 1.7+.
 
 ## Getting started
 * Clone this repo.
-* Install brunch with `sudo npm install -g brunch`, optionally passing the `--no-bin-links` flag if using Windows.
-* Install bower with `sudo npm install -g bower`, optionally passing the `--no-bin-links` flag if using Windows.
+* Install brunch with `sudo npm install -g brunch`, optionally passing the `--no-bin-links` flag if using Vagrant.
+* Install bower with `sudo npm install -g bower`, optionally passing the `--no-bin-links` flag if using Vagrant.
 * Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if using Windows.
 * Build the project with `sudo brunch b` or `sudo brunch w`.
 * Open the `/usr/share/nginx/www` dir to see the result.
