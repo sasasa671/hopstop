@@ -31,7 +31,7 @@ module.exports = class BeerView extends View
 
   _trackAccordionClick: (evt) ->
     return unless evt.target
-    label = evt.target.textContent.trim()
-    value = evt.target.parentNode.attributes['href'].value
+    label = $(evt.target).text().trim()
+    value = $(evt.target).closest('a').attr('href')
     window.ga('send','event','link','click', label, value)
     
