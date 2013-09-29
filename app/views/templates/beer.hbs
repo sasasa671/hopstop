@@ -13,9 +13,9 @@
 
     {{! Description }}
     {{#if beer.beer_description}}
-      <p>{{beer.beer_description}}</p>
+      <p class="well">{{beer.beer_description}}</p>
     {{else}}
-      <p><em>Description not available.</em></p>
+      <p class="alert alert-info"><em>Description not available.</em></p>
     {{/if}}
 
     {{! Info }}
@@ -33,5 +33,9 @@
         <dd>{{beer.beer_abv}}</dd>
       {{/if}}
     </dl>
+
+    <button type="button" class="btn btn-default btn-md pull-right">
+      <span class="glyphicon glyphicon-star"></span> Star
+    </button>
   </div>
 </div>

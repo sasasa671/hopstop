@@ -8,6 +8,7 @@ Requires Brunch 1.7+.
 
 ## Getting started
 * Clone this repo.
+* Use node version v0.10.15 or greater (earlier versions may be supported, but have not been tested)
 * Install brunch with `sudo npm install -g brunch`, optionally passing the `--no-bin-links` flag if using Vagrant.
 * Install bower with `sudo npm install -g bower`, optionally passing the `--no-bin-links` flag if using Vagrant.
 * Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if using Windows.

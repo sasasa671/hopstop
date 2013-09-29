@@ -3,7 +3,7 @@ template = require 'views/templates/beer'
 
 module.exports = class BeerView extends View
   template: template
-  className: 'panel beer'
+  className: 'panel panel-default beer'
   events:
     'click [data-toggle="collapse"]': '_trackAccordionClick'
 
