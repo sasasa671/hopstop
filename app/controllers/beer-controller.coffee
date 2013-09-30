@@ -3,21 +3,28 @@ Beer = require 'models/beer'
 BeerPageView = require 'views/beer-view'
 BeersCollection = require 'models/beers-collection'
 BeersCollectionView = require 'views/beers-collection-view'
+BeerSidebarView = require 'views/beer-sidebar-view'
 
 module.exports = class BeersController extends Controller
   historyURL: 'beer'
 
   index: ->
     @collection = new BeersCollection
-    @view = new BeersCollectionView {@collection}
+    @bcv = new BeersCollectionView {@collection}
+    @bsv = new BeerSidebarView
     @collection.fetch
-      success: => @view.render()
+      success: =>
+        @bcv.render()
+        @bsv.render()
 
   search: (params) ->
     @collection = new BeersCollection name: params.name # TODO: Refactor to use params.id?
-    @view = new BeersCollectionView {@collection}
+    @bcv = new BeersCollectionView {@collection}
+    @bsv = new BeerSidebarView
     @collection.fetch
-      success: => @view.render()
+      success: =>
+        @bcv.render()
+        @bsv.render()
 
   show: (params) ->
     @model = new Beer id: params.id

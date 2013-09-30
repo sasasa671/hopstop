@@ -6,6 +6,13 @@ module.exports = class SiteView extends View
   container: 'body'
   id: 'site-container'
   regions:
-    'header': 'nav[role="navigation"]'
-    'main'  : 'nav[role="navigation"] + div'
+    'header' : 'nav[role="navigation"]'
+    'main'   : '#accordion'
+    'sidebar': '#sidebar'
   template: template
+
+  events:
+    'click [data-toggle="offcanvas"]': '_toggleSidebar'
+
+  _toggleSidebar: (evt) ->
+    @$('.row-offcanvas').toggleClass('active');

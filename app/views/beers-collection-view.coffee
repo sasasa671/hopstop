@@ -1,10 +1,9 @@
 CollectionView = require 'views/base/collection-view'
-Beer = require 'views/beer-view'
+BeerView = require 'views/beer-view'
 
 module.exports = class BeersView extends CollectionView
-  itemView: Beer
+  itemView: BeerView
   className: 'panel-group beers'
-  id: 'accordion'
   region: 'main'
 
   initialize: ->

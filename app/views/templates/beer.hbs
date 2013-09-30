@@ -1,6 +1,6 @@
 <div class="panel-heading">
   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{beer.bid}}">
-    <h4 class="panel-title">{{beer.beer_name}} <i class="glyphicon glyphicon-plus-sign pull-right"></i></h4>
+    <h4 class="panel-title">{{beer.beer_name}} <small><i class="glyphicon glyphicon-plus-sign pull-right"></i></small></h4>
   </a>
 </div>
 <div id="{{beer.bid}}" class="panel-collapse collapse">
@@ -33,5 +33,10 @@
         <dd>{{beer.beer_abv}}</dd>
       {{/if}}
     </dl>
+
+    <button type="button" class="btn btn-default btn-md pull-right" disabled>
+      <span class="glyphicon glyphicon-star"></span> Star
+    </button>
+
   </div>
 </div>
