@@ -10,12 +10,10 @@ module.exports = class BeerView extends View
 
   initialize: ->
     @$el.on('show.bs.collapse', (evt) ->
-      $(evt.target).find('img.lazy').each( ->
-        imageSrc = $(this).attr("data-original")
-        $(this).attr("src", imageSrc).removeAttr("data-original")
-      )
+      $(evt.target).find('img.lazy').each ->
+        imageSrc = $(@).attr("data-original")
+        $(@).attr("src", imageSrc).removeAttr("data-original")
     )
-    @
     
   _trackAccordionClick: (evt) ->
     return unless evt.target
