@@ -15,19 +15,19 @@ module.exports = class BeersController extends Controller
     @collection.fetch
       success: =>
         @bcv.render()
-        @bsv.render()
+    @bsv.render()
 
-  search: (params) ->
-    @collection = new BeersCollection name: params.name # TODO: Refactor to use params.id?
+  search: (attrs) ->
+    @collection = new BeersCollection name: attrs.name # TODO: Refactor to use attrs.id? Or settle on use of idAttribute?
     @bcv = new BeersCollectionView {@collection}
     @bsv = new BeerSidebarView
     @collection.fetch
       success: =>
         @bcv.render()
-        @bsv.render()
+    @bsv.render()
 
-  show: (params) ->
-    @model = new Beer id: params.id
+  show: (attrs) ->
+    @model = new Beer id: attrs.id
     @view = new BeerPageView {@model}
     @model.fetch
       success: => @view.render()

@@ -1,21 +1,21 @@
 View = require 'views/base/view'
-template = require 'views/templates/beer'
 
 module.exports = class BeerView extends View
-  template: template
+  template: require './templates/beer'
   className: 'panel panel-default beer'
+  tagName: 'li'
   events:
     'click [data-toggle="collapse"]': '_trackAccordionClick'
     'click [data-toggle="collapse"]': '_toggleIcon'
 
   initialize: ->
-    # Display lazy-loaded images when collapsible group clicked
     @$el.on('show.bs.collapse', (evt) ->
       $(evt.target).find('img.lazy').each( ->
         imageSrc = $(this).attr("data-original")
         $(this).attr("src", imageSrc).removeAttr("data-original")
       )
     )
+    @
     
   _trackAccordionClick: (evt) ->
     return unless evt.target
