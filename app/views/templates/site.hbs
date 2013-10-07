@@ -3,7 +3,11 @@
 <div class="container">
   <div class="row">
     <p class="col-xs-12 visible-xs container">
-      <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="offcanvas">Toolbar</button>
+      {{!-- TODO: Pass `search` into template --}}
+      {{#if search}}
+        Viewing: {{search}}
+      {{/if}}
+      <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="offcanvas">Menu</button>
     </p>
   </div>
   <div class="row row-offcanvas row-offcanvas-right">

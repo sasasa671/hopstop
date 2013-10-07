@@ -1,5 +1,4 @@
 View = require 'views/base/view'
-template = require 'views/templates/site'
 
 # Site view is a top-level view which is bound to body.
 module.exports = class SiteView extends View
@@ -9,7 +8,7 @@ module.exports = class SiteView extends View
     'header' : 'nav[role="navigation"]'
     'main'   : '#content'
     'sidebar': '#sidebar'
-  template: template
+  template: require './templates/site'
 
   events:
     'click [data-toggle="offcanvas"]': '_toggleSidebar'

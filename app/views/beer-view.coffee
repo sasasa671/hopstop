@@ -7,6 +7,7 @@ module.exports = class BeerView extends View
   events:
     'click [data-toggle="collapse"]': '_trackAccordionClick'
     'click [data-toggle="collapse"]': '_toggleIcon'
+    'click [data-name="suggest"]'   : '_suggest'
 
   initialize: ->
     @$el.on('show.bs.collapse', (evt) ->
@@ -28,3 +29,12 @@ module.exports = class BeerView extends View
       $icon.removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign')
     else
       $icon.removeClass('glyphicon-minus-sign').addClass('glyphicon-plus-sign')
+
+  _suggest: (evt) ->
+    return unless evt.target
+    $button = $(evt.target).closest('button')
+    if $button
+      beerId = $button.attr('data-value')
+      $button.prop('disabled', true)
+      @$('.alert').removeClass('hidden')
+

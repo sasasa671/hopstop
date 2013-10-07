@@ -6,8 +6,9 @@ module.exports = class HeaderView extends View
   id: 'header'
   template: require './templates/header'
   events:
-    'submit form': '_submit'
+    'submit form'   : '_submit'
     'keypress input': '_hide'
+    'click button'  : '_validateInput'
 
   _submit: (evt) ->
     evt.preventDefault()
@@ -20,3 +21,11 @@ module.exports = class HeaderView extends View
     code = evt.keyCode || evt.which;
     if code is 13
       @$('.navbar-collapse').collapse('hide')
+
+  _validateInput: (evt) ->
+    $input = $(evt.target).closest('button').prev().find('input')
+    return unless $input
+    if $input.val()
+      @_submit evt
+    else
+      $input.focus()

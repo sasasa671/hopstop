@@ -1,33 +1,35 @@
 <div class="well sidebar-nav text-muted">
   <ul class="nav">
-    <li><i class="glyphicon glyphicon-star"></i> Starred</li>
+    <li><i class="glyphicon glyphicon-thumbs-up"></i> Suggested</li>
     <li>
       <ul class="nav">
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#" class="text-muted">1000 IBU</a></li>
+        <li><a href="#" class="text-muted">Breakfast Stout</a></li>
+        <li><a href="#" class="text-muted">Darklord</a></li>
+        <li><a href="#" class="text-muted">Zombie Dust</a></li>
       </ul>
     </li>
-    <li style="margin-top:1rem"><i class="glyphicon glyphicon-time"></i> Searched</li>
+    <li style="margin-top:1rem"><i class="glyphicon glyphicon-search"></i> Searches</li>
     <li>
       <ul class="nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="#" class="text-muted">Goose Island Brewing</a></li>
+        <li><a href="#" class="text-muted">Double Imperial Stout</a></li>
+        <li><a href="#" class="text-muted">Maibock</a></li>
+        <li><a href="#" class="text-muted">Founders Doom</a></li>
       </ul>
     </li>
   </ul>
 </div>
 
 <div class="list-group">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-star"></i> Manage Starred</h4>
-    <p class="list-group-item-text text-muted">View and edit starred items.</p>
+  {{!-- FIXME: Poper doesn't open --}}
+  <a href="#" class="list-group-item" data-toggle="popover" data-content="Pardon the dust. This feature isn't quite ready yet." data-container="body">
+    <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-thumbs-up"></i> Suggestions</h4>
+    <p class="list-group-item-text text-muted">Manage suggested items.</p>
   </a>
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-search"></i> Search History</h4>
-    <p class="list-group-item-text text-muted">View and reset search history.</p>
+  {{!-- FIXME: Poper doesn't open --}}
+  <a href="#" class="list-group-item" data-toggle="popover" data-content="Pardon the dust. This feature isn't quite ready yet." data-container="body">
+    <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-search"></i> Searches</h4>
+    <p class="list-group-item-text text-muted">Manage search history.</p>
   </a>
 </div>
