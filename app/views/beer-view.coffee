@@ -5,23 +5,18 @@ module.exports = class BeerView extends View
   className: 'panel panel-default beer'
   tagName: 'li'
   events:
-    'click [data-toggle="collapse"]': '_trackAccordionClick'
-    'click [data-toggle="collapse"]': '_toggleIcon'
-    'click [data-name="suggest"]'   : '_suggest'
+    'click [data-toggle="collapse"]': '_clickCollapse'
+    'click [data-name="brewery-name"]': '_submitSearch'
+    'click [data-name="beer-style"]': '_submitSearch'
 
   initialize: ->
-    @$el.on('show.bs.collapse', (evt) ->
-      $(evt.target).find('img.lazy').each ->
-        imageSrc = $(@).attr("data-original")
-        $(@).attr("src", imageSrc).removeAttr("data-original")
-    )
-    
-  _trackAccordionClick: (evt) ->
+    @delegate 'show.bs.collapse', @_lazyLoadImages
+  
+  _clickCollapse: (evt) ->
     return unless evt.target
-    label = $(evt.target).text().trim()
-    value = $(evt.target).closest('a').attr('href')
-    window.ga('send','event','link','click', label, value)
-    
+    @_toggleIcon evt
+    @_trackAccordionClick evt
+
   _toggleIcon: (evt) ->
     return unless evt.target
     $icon = $(evt.target).find('i')
@@ -30,11 +25,17 @@ module.exports = class BeerView extends View
     else
       $icon.removeClass('glyphicon-minus-sign').addClass('glyphicon-plus-sign')
 
-  _suggest: (evt) ->
+  _trackAccordionClick: (evt) ->
     return unless evt.target
-    $button = $(evt.target).closest('button')
-    if $button
-      beerId = $button.attr('data-value')
-      $button.prop('disabled', true)
-      @$('.alert').removeClass('hidden')
+    label = $(evt.target).text().trim()
+    value = $(evt.target).closest('a').attr('href')
+    window.ga('send','event','link','click', label, value)
 
+  _lazyLoadImages: (evt) ->
+    $(evt.target).find('img.lazy').each ->
+      imageSrc = $(@).attr("data-original")
+      $(@).attr("src", imageSrc).removeAttr("data-original")
+
+  _submitSearch: (evt) ->
+    search = $(evt.target).attr('data-value')
+    @publishEvent '!router:route', "/beer/#{encodeURIComponent(search)}"

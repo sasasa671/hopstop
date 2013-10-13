@@ -24,11 +24,11 @@
     <dl class="dl-horizontal">
       {{#if brewery.brewery_name}}
         <dt>Brewery</dt>
-        <dd>{{brewery.brewery_name}}</dd>
+        <dd data-name="brewery-name" data-value="{{brewery.brewery_name}}">{{brewery.brewery_name}}</dd>
       {{/if}}
       {{#if beer.beer_style}}
         <dt>Style</dt>
-        <dd>{{beer.beer_style}}</dd>
+        <dd data-name="beer-style" data-value="{{beer.beer_style}}">{{beer.beer_style}}</dd>
       {{/if}}
       {{#if beer.beer_abv}}
         <dt>ABV</dt>
@@ -36,9 +36,8 @@
       {{/if}}
     </dl>
 
+    {{!-- Toolbar
     <hr>
-    
-    {{!-- Toolbar --}}
     <div class="alert alert-info alert-dismissable hidden">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>One sec!</strong> Toolbar features aren't quite ready yet.
@@ -49,16 +48,7 @@
           <span class="glyphicon glyphicon-star"></span> Star
         </button>
       </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-default btn-md" data-name="suggest" data-value="{{beer.bid}}">
-          <span class="glyphicon glyphicon-thumbs-up"></span>
-        </button>
-        <button type="button" class="btn btn-default btn-md" data-name="suggest" data-value="{{beer.bid}}">
-          <span class="glyphicon glyphicon-thumbs-down"></span>
-        </button>
-      </div>
-    </div>
-    
+    </div> --}}
 
   </div>
 </div>

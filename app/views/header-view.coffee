@@ -15,7 +15,7 @@ module.exports = class HeaderView extends View
     search = $(evt.target).prev().find('input').val()
     return unless search
     window.ga('send','event','form','submit', 'search', search) # track event
-    @publishEvent '!router:route', "/beer/#{window.encodeURIComponent(search)}"
+    @publishEvent '!router:route', "/beer/#{encodeURIComponent(search)}"
 
   _validateInput: (evt) ->
     $input = $(evt.target).closest('button').prev().find('input')
