@@ -1,4 +1,5 @@
 View = require 'views/base/view'
+SearchHistory = require 'models/search-history'
 
 module.exports = class HeaderView extends View
   className: 'header'
@@ -9,13 +10,19 @@ module.exports = class HeaderView extends View
     'submit form'   : '_submit'
     'click button'  : '_validateInput'
 
+  initialize: ->
+    # TODO: Prefill search field for deep linked searches
+    @searchHistory = new SearchHistory
+    @searchHistory.fetch()
+
   _submit: (evt) ->
     evt.preventDefault()
-    @$('.navbar-collapse').collapse('hide')
+    @$('.navbar-collapse').collapse('hide') # TODO: only if collapsible menu shown
     search = $(evt.target).prev().find('input').val()
     return unless search
-    window.ga('send','event','form','submit', 'search', search) # track event
-    @publishEvent '!router:route', "/beer/#{encodeURIComponent(search)}"
+    @_trackSearch search
+    @_updateSearchHistory search
+    @_redirectToSearch search
 
   _validateInput: (evt) ->
     $input = $(evt.target).closest('button').prev().find('input')
@@ -24,3 +31,13 @@ module.exports = class HeaderView extends View
       @_submit evt
     else
       $input.focus()
+
+  _trackSearch: (search) ->
+    window.ga 'send', 'event', 'form', 'submit', 'search', search
+
+  _updateSearchHistory: (search) ->
+    return unless search && @searchHistory
+    @searchHistory.create {search}
+
+  _redirectToSearch: (search) ->
+    Chaplin.helpers.redirectTo url: "/beer/#{encodeURIComponent(search)}"
