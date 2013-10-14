@@ -6,6 +6,8 @@ based on [Chaplin](http://chaplinjs.org) architecture.
 
 Requires Brunch 1.7+.
 
+![](https://david-dm.org/jhabdas/hopstop.png)
+
 ## Getting started
 * Clone this repo.
 * Use node version v0.10.15 or greater (earlier versions may be supported, but have not been tested)
