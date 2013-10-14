@@ -11,9 +11,9 @@ Requires Brunch 1.7+.
 ## Getting started
 * Clone this repo.
 * Use node version v0.10.15 or greater (earlier versions may be supported, but have not been tested)
-* Install brunch with `sudo npm install -g brunch`, optionally passing the `--no-bin-links` flag if using Vagrant.
-* Install bower with `sudo npm install -g bower`, optionally passing the `--no-bin-links` flag if using Vagrant.
-* Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if using Windows.
+* Install brunch with `sudo npm install -g brunch`, optionally passing the `--no-bin-links` flag if using Vagrant on Windows.
+* Install bower with `sudo npm install -g bower`, optionally passing the `--no-bin-links` flag if using Vagrant on Windows.
+* Install node and bower deps with `npm install` and `bower install`, respectively, optionally passing the `--no-bin-links` flag if Vagrant on Windows.
 * Build the project with `sudo brunch b` or `sudo brunch w`.
 * Open the `/usr/share/nginx/www` dir to see the result.
 * To function, requires Nginx configured to authenticate and connect to the Untappd API. Use the following config with completed values for `client_id` and `client_secret` to enable reverse proxy to end-point, like:
