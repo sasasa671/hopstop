@@ -12,28 +12,30 @@ module.exports = class BeerView extends View
     'toggleOpen': 'toggleOpen'
 
   initialize: ->
+    @collapsed = true
     @delegate 'show.bs.collapse', @_lazyLoadImages
 
   toggleOpen: ->
-    @_toggleIcon()
+    @collapsed = false
     @_lazyLoadImages() unless @loaded
     @$el.find("[data-name=#{@model.get('beer')?.bid}]")?.collapse 'show'
     $('html,body').animate
       scrollTop: @$el.offset().top - 58 # FIXME: Calculate header height
     , 1000
+    @_toggleIcon()
 
   _clickCollapse: (evt) ->
     return unless evt.target
+    @collapsed = !@collapsed
     @_toggleIcon()
     @_trackAccordionClick evt
-    window.location = "##{@model.get('beer')?.bid}"
+    window.location = "##{@model.get('beer')?.bid}" unless @collapsed
 
   _toggleIcon: ->
     $icon = @$('i')
-    if $icon.hasClass('glyphicon-plus-sign')
-      $icon.removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign')
-    else
-      $icon.removeClass('glyphicon-minus-sign').addClass('glyphicon-plus-sign')
+    switch @collapsed
+      when true then $icon.removeClass('glyphicon-minus-sign').addClass('glyphicon-plus-sign')
+      when false  then $icon.removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign')
 
   _trackAccordionClick: (evt) ->
     return unless evt.target
