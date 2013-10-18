@@ -11,8 +11,7 @@ module.exports = class Beers extends Collection
     if @name
       '/api/untappd/search/beer?sort=count&q=' + @name
     else
-      '/api/untappd/search/beer?sort=count&q=founders'
+      '/api/untappd/search/beer?sort=count&q=founder'
 
-  # Pull the list of beers out of the response object
   parse: (response, options) ->
     response.response.beers.items

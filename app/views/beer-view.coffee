@@ -32,7 +32,7 @@ module.exports = class BeerView extends View
     window.ga('send','event','link','click', label, value)
 
   _lazyLoadImages: (evt) ->
-    $(evt.target).find('img.lazy').each ->
+    $(evt.target).find('[data-original]').each ->
       imageSrc = $(@).attr("data-original")
       $(@).attr("src", imageSrc).removeAttr("data-original")
 

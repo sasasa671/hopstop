@@ -19,7 +19,6 @@
 
     "css-brunch": ">= 1.0 < 1.8",
     "stylus-brunch": ">= 1.0 < 1.8",
-    "less-brunch": ">= 1.0 < 1.8",
 
     "handlebars-brunch": ">= 1.0 < 1.8",
 
