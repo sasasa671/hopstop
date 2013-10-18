@@ -7,10 +7,19 @@ module.exports = class BeersView extends CollectionView
   region: 'main'
   tagName: 'ol'
   id: 'accordion'
-  fallbackSelector: '.fallback' # TODO: Remove if it won't work without a template here
-  loadingSelector: '.loading' # TODO: Remove if it won't work without a template here
+  listen:
+    'sync collection': '_checkHash'
 
   initialize: ->
     super
+    @_trackPageView()
+
+  _trackPageView: ->
     page = if @collection?.name then "/beer/#{@collection.name}" else '/'
-    window.ga('send','pageview', page)
+    window.ga('send','pageview', page) if page
+
+  _checkHash: ->
+    target = window.location.hash?.slice(1)
+    return unless target
+    views = _.values @getItemViews()
+    view.toggleOpen() for view in views when view.model.get('beer')?.bid.toString() == target
