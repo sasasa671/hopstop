@@ -24,11 +24,15 @@
     <dl class="dl-horizontal">
       {{#if brewery.brewery_name}}
         <dt>Brewery</dt>
-        <dd data-name="brewery-name" data-value="{{brewery.brewery_name}}">{{brewery.brewery_name}}</dd>
+        <dd data-name="brewery-name" data-value="{{brewery.brewery_name}}">
+          <a href="{{#url "beer#search" brewery.brewery_name}}{{/url}}">{{brewery.brewery_name}}</a>
+        </dd>
       {{/if}}
       {{#if beer.beer_style}}
         <dt>Style</dt>
-        <dd data-name="beer-style" data-value="{{beer.beer_style}}">{{beer.beer_style}}</dd>
+        <dd data-name="beer-style" data-value="{{beer.beer_style}}">
+          <a href="{{#url "beer#search" beer.beer_style}}{{/url}}">{{beer.beer_style}}</a>
+        </dd>
       {{/if}}
       {{#if beer.beer_abv}}
         <dt>ABV</dt>

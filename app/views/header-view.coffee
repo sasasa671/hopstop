@@ -41,4 +41,4 @@ module.exports = class HeaderView extends View
     @searchHistory.create {search}
 
   _redirectToSearch: (search) ->
-    Chaplin.helpers.redirectTo url: "/beer/#{encodeURIComponent(search)}"
+    Chaplin.helpers.redirectTo url: "/beer/#{window.encodeURIComponent(search)}"

@@ -6,8 +6,8 @@ module.exports = class BeerView extends View
   tagName: 'li'
   events:
     'click [data-toggle="collapse"]': '_clickCollapse'
-    'click [data-name="brewery-name"]': '_submitSearch'
-    'click [data-name="beer-style"]': '_submitSearch'
+    'click [data-name="brewery-name"]': '_searchBeer'
+    'click [data-name="beer-style"]': '_searchBeer'
   listen:
     'toggleOpen': 'toggleOpen'
 
@@ -29,7 +29,7 @@ module.exports = class BeerView extends View
     @collapsed = !@collapsed
     @_toggleIcon()
     @_trackAccordionClick evt
-    window.location.hash = "#{@model.get('beer')?.bid}"
+    @publishEvent 'router:changeURL', "##{@model.get('beer')?.bid}"
 
   _toggleIcon: ->
     $icon = @$('i')
@@ -50,6 +50,7 @@ module.exports = class BeerView extends View
       $(@).attr("src", imageSrc).removeAttr("data-original")
     @loaded = true
 
-  _submitSearch: (evt) ->
-    search = $(evt.target).attr('data-value')
-    @publishEvent '!router:route', "/beer/#{encodeURIComponent(search)}"
+  _searchBeer: (evt) ->
+    evt.preventDefault()
+    search = window.encodeURIComponent( $(evt.target).text() )
+    Chaplin.helpers.redirectTo 'beer#search', {search}

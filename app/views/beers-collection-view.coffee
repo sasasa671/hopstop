@@ -2,17 +2,20 @@ CollectionView = require 'views/base/collection-view'
 BeerView = require 'views/beer-view'
 
 module.exports = class BeersView extends CollectionView
+  template: './templates/beers'
   itemView: BeerView
   className: 'panel-group beers'
   region: 'main'
   tagName: 'ol'
   id: 'accordion'
+  # fallbackSelector: '[data-name="empty-collection"]'
   listen:
     'sync collection': '_checkHash'
 
   initialize: ->
     super
     @_trackPageView()
+    @_setCurrentSearch()
 
   _trackPageView: ->
     page = if @collection?.search then "/beer/#{@collection.search}" else '/'
@@ -23,3 +26,6 @@ module.exports = class BeersView extends CollectionView
     return unless target
     views = _.values @getItemViews()
     view.toggleOpen() for view in views when view.model.get('beer')?.bid.toString() == target
+
+  _setCurrentSearch: ->
+    $('[data-name="current-search"]').text if @collection.search then window.decodeURIComponent(@collection.search) else 'Founders'
