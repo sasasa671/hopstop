@@ -5,11 +5,11 @@ module.exports = class Beers extends Collection
   model: Beer
 
   initialize: (params) ->
-    @name = params.name if params
+    @search = params.search if params
 
   url: ->
-    if @name
-      '/api/untappd/search/beer?sort=count&q=' + @name
+    if @search
+      '/api/untappd/search/beer?sort=count&q=' + @search
     else
       '/api/untappd/search/beer?sort=count&q=founder'
 

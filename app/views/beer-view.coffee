@@ -29,7 +29,7 @@ module.exports = class BeerView extends View
     @collapsed = !@collapsed
     @_toggleIcon()
     @_trackAccordionClick evt
-    window.location = "##{@model.get('beer')?.bid}" unless @collapsed
+    window.location.hash = "#{@model.get('beer')?.bid}"
 
   _toggleIcon: ->
     $icon = @$('i')

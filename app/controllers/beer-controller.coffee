@@ -18,7 +18,7 @@ module.exports = class BeersController extends Controller
     @bsv.render()
 
   search: (attrs) ->
-    @collection = new BeersCollection name: attrs.name # TODO: Refactor to use attrs.id? Or settle on use of idAttribute?
+    @collection = new BeersCollection search: attrs.search
     @bcv = new BeersCollectionView {@collection}
     @bsv = new BeerSidebarView
     @collection.fetch

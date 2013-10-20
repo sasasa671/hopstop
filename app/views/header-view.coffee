@@ -17,7 +17,8 @@ module.exports = class HeaderView extends View
 
   _submit: (evt) ->
     evt.preventDefault()
-    @$('.navbar-collapse').collapse('hide') # TODO: only if collapsible menu shown
+    if $( document.querySelectorAll('.navbar-toggle') ).filter(':visible').length > 0
+      @$('.navbar-collapse').collapse('hide')
     search = $(evt.target).prev().find('input').val()
     return unless search
     @_trackSearch search

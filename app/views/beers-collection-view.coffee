@@ -15,7 +15,7 @@ module.exports = class BeersView extends CollectionView
     @_trackPageView()
 
   _trackPageView: ->
-    page = if @collection?.name then "/beer/#{@collection.name}" else '/'
+    page = if @collection?.search then "/beer/#{@collection.search}" else '/'
     window.ga('send','pageview', page) if page
 
   _checkHash: ->
