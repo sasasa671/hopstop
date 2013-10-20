@@ -29,7 +29,7 @@ module.exports = class BeerView extends View
     @collapsed = !@collapsed
     @_toggleIcon()
     @_trackAccordionClick evt
-    @publishEvent 'router:changeURL', "##{@model.get('beer')?.bid}"
+    window.history.pushState null, null, "##{@model.get('beer')?.bid}"
 
   _toggleIcon: ->
     $icon = @$('i')
