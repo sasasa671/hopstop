@@ -1,5 +1,5 @@
-BeersCollectionView = require 'views/beers-collection-view'
+BeersView = require 'views/beers-view'
 
-describe 'BeersCollectionView', ->
+describe 'BeersView', ->
   beforeEach ->
-    @view = new BeersCollectionView()
+    @view = new BeersView()

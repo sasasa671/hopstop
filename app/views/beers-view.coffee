@@ -2,7 +2,6 @@ CollectionView = require 'views/base/collection-view'
 BeerView = require 'views/beer-view'
 
 module.exports = class BeersView extends CollectionView
-  template: './templates/beers'
   itemView: BeerView
   className: 'panel-group beers'
   region: 'main'

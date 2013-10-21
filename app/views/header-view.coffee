@@ -8,7 +8,7 @@ module.exports = class HeaderView extends View
   template: require './templates/header'
   events:
     'submit form'   : '_submit'
-    'click button'  : '_validateInput'
+    'click button'  : '_validateAndSubmit'
 
   initialize: ->
     # TODO: Prefill search field for deep linked searches
@@ -25,12 +25,13 @@ module.exports = class HeaderView extends View
     @_updateSearchHistory search
     @_redirectToSearch search
 
-  _validateInput: (evt) ->
+  _validateAndSubmit: (evt) ->
     $input = $(evt.target).closest('button').prev().find('input')
     return unless $input
     if $input.val()
       @_submit evt
     else
+      $input.addClass 'has-error'
       $input.focus()
 
   _trackSearch: (search) ->
@@ -41,4 +42,5 @@ module.exports = class HeaderView extends View
     @searchHistory.create {search}
 
   _redirectToSearch: (search) ->
-    Chaplin.helpers.redirectTo url: "/beer/#{window.encodeURIComponent(search)}"
+    search = window.encodeURIComponent search
+    Chaplin.helpers.redirectTo 'beer#search', {search}

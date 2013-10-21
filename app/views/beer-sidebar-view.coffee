@@ -1,21 +1,15 @@
 View = require 'views/base/view'
-SearchHistory = require 'models/search-history'
+SearchesView = require 'views/searches-view'
 
-module.exports = class BeersSidebarView extends View
+module.exports = class BeerSidebarView extends View
   template: require './templates/beer-sidebar'
   region: 'sidebar'
 
-  initialize: ->
-    @_populateRecentSearches()
-
   attach: ->
     super
+    container = '[data-name="searches"]'
+    searchesView = new SearchesView {@collection, container}
+    @subview 'searches', searchesView
     @$('[data-toggle="popover"]').popover
       trigger: 'hover'
       placement: 'left'
-
-  _populateRecentSearches: ->
-    @searchHistory ||= new SearchHistory
-    @searchHistory.fetch()
-    # for entry in @searchHistory.models
-    #   console.log entry
