@@ -4,7 +4,6 @@ SearchHistory = require 'models/search-history'
 module.exports = class HeaderView extends View
   className: 'header'
   region: 'header'
-  id: 'header'
   template: require './templates/header'
   events:
     'submit form'   : '_submit'
