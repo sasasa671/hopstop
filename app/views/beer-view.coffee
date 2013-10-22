@@ -8,8 +8,6 @@ module.exports = class BeerView extends View
     'click [data-toggle="collapse"]': '_clickCollapse'
     'click [data-name="brewery-name"]': '_searchBeer'
     'click [data-name="beer-style"]': '_searchBeer'
-  listen:
-    'toggleOpen': 'toggleOpen'
 
   initialize: ->
     @collapsed = true
