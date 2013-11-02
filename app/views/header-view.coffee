@@ -42,4 +42,4 @@ module.exports = class HeaderView extends View
 
   _redirectToSearch: (search) ->
     search = window.encodeURIComponent search
-    Chaplin.helpers.redirectTo 'beer#search', {search}
+    Chaplin.helpers.redirectTo 'beers#search', {search}

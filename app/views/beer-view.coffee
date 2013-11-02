@@ -51,4 +51,4 @@ module.exports = class BeerView extends View
   _searchBeer: (evt) ->
     evt.preventDefault()
     search = window.encodeURIComponent( $(evt.target).text() )
-    Chaplin.helpers.redirectTo 'beer#search', {search}
+    Chaplin.helpers.redirectTo 'beers#search', {search}

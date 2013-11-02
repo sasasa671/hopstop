@@ -25,13 +25,13 @@
       {{#if brewery.brewery_name}}
         <dt>Brewery</dt>
         <dd data-name="brewery-name" data-value="{{brewery.brewery_name}}">
-          <a href="{{#url "beer#search" brewery.brewery_name}}{{/url}}">{{brewery.brewery_name}}</a>
+          <a href="{{#url "beers#search" brewery.brewery_name}}{{/url}}">{{brewery.brewery_name}}</a>
         </dd>
       {{/if}}
       {{#if beer.beer_style}}
         <dt>Style</dt>
         <dd data-name="beer-style" data-value="{{beer.beer_style}}">
-          <a href="{{#url "beer#search" beer.beer_style}}{{/url}}">{{beer.beer_style}}</a>
+          <a href="{{#url "beers#search" beer.beer_style}}{{/url}}">{{beer.beer_style}}</a>
         </dd>
       {{/if}}
       {{#if beer.beer_abv}}
