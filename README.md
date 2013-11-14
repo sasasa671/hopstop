@@ -1,7 +1,7 @@
 # Hopstop
 ![Hopstop screeshot](http://i.imgur.com/IhEVItr.png)
 
-Hopstop is a mobile-first beer search app built using the Brunch with Chaplin skeleton (boilerplate) for [Brunch](http://brunch.io)
+Hopstop is a beer-first mobile search app built using the Brunch with Chaplin skeleton (boilerplate) for [Brunch](http://brunch.io)
 based on [Chaplin](http://chaplinjs.org) architecture.
 
 Requires Brunch 1.7+.
